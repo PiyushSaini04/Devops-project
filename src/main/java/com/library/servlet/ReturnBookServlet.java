@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -24,7 +23,7 @@ public class ReturnBookServlet extends HttpServlet {
                 "RETURN | bookId=" + bookId +
                 " | date=" + LocalDate.now();
 
-        FileStorage.save(record);
+        FileStorage.save(getServletContext(), record);
 
         resp.getWriter().print("Book Returned Successfully");
     }
