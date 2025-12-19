@@ -11,40 +11,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            background-color: #1e293b;
-            color: white;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-
-        .navbar {
-            background: #0f172a;
-            padding: 16px 80px;
-            width: 80%;
-            height: 100px;
-            border-radius: 12px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        body {
+            background: linear-gradient(
+                135deg,
+                #081127ff 0%,
+                #1d2838ff 45%,
+                #425c88ff 100%
+            );
+            color: #ffffff;
+            height: 100vh;
         }
 
-        .logo {
-            font-size: 30px;
-            font-weight: 800;
-            color: #fbbf24;
-        }
+       /* Navbar */
+    .navbar {
+        position: sticky;
+        top: 0;
+        background: #0f172a;
+        padding: 16px 80px;
+        width: 80%;
+        height: 100px;
+        font-size: 20px;
+        border-radius: 12px;
+        box-shadow: inset 0 0 10px rgba(255,255,255,0.5);
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
 
-        .nav-links a {
-            margin-left: 24px;
-            color: #e5e7eb;
-            text-decoration: none;
-            font-size: 22px;
-        }
+    .logo {
+        font-size: 30px;
+        font-weight: 800;
+        color: #fbbf24;
+    }
 
-        .nav-links a:hover {
-            color: #fbbf24;
-        }
+    .nav-links a {
+        margin-left: 24px;
+        text-decoration: none;
+        color: #e5e7eb;
+        font-size: 22px;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #fbbf24;
+        text-shadow: 0 0 30px #fbbf24;
+    }
+
 
         .page {
             width: 90%;
@@ -114,6 +134,7 @@
 </head>
 <body>
 
+<!-- Navbar -->
 <div class="navbar">
     <div class="logo">LibrarySys</div>
     <div class="nav-links">
@@ -123,6 +144,7 @@
         <a href="returnBook.jsp" style="color:#fbbf24;">Return Book</a>
     </div>
 </div>
+
 
 <div id="successPopup" class="popup">
     ✅ Book returned successfully!

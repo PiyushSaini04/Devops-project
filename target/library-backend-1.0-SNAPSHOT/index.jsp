@@ -129,6 +129,17 @@
             font-size: 20px;
         }
 
+        .student-img {
+            width: 700px;
+        }
+
+        .book-img {
+            position: absolute;
+            width: 250px;
+            top: 100px;
+            right: 50px;
+        }        
+
         /* Responsive */
         @media (max-width: 900px) {
             .hero {
@@ -177,7 +188,9 @@
 
     <div class="hero-right">
         <div class="blob">
-            📚 Library
+        
+            <img src="assest/student.png" alt="Student Image" class="student-img">
+
         </div>
     </div>
 </div>

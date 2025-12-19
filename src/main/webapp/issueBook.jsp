@@ -19,8 +19,13 @@
         }
 
         body {
-            background-color: #1e293b;
-            color: white;
+            background: linear-gradient(
+                135deg,
+                #081127ff 0%,
+                #1d2838ff 45%,
+                #425c88ff 100%
+            );
+            color: #ffffff;
         }
 
         /* Navbar */

@@ -22,7 +22,7 @@ public class ReturnBookServlet extends HttpServlet {
         String student = req.getParameter("student");
         String regNo = req.getParameter("regNo");
 
-        // 1️⃣ Delete ISSUE record (remove issued entry)
+        // 1Delete ISSUE record (remove issued entry)
         FileStorage.deleteIssueRecord(
                 getServletContext(),
                 bookId,
@@ -30,14 +30,15 @@ public class ReturnBookServlet extends HttpServlet {
                 regNo
         );
 
-        // 2️⃣ Update BOOK status to AVAILABLE
+        // Update BOOK status to AVAILABLE
         FileStorage.updateBookStatus(
                 getServletContext(),
                 bookId,
+                
                 "AVAILABLE"
         );
 
-        // 3️⃣ Save RETURN record (audit/history)
+        // 3Save RETURN record (audit/history)
         String record =
                 "RETURN | bookId=" + bookId +
                 " | student=" + student +
@@ -46,7 +47,7 @@ public class ReturnBookServlet extends HttpServlet {
 
         FileStorage.save(getServletContext(), record);
 
-        // 4️⃣ Redirect back with success flag (PRG pattern)
+        //  Redirect back with success flag (PRG pattern)
         resp.sendRedirect(
                 "returnBook.jsp?success=true&student=" + student + "&regNo=" + regNo
         );

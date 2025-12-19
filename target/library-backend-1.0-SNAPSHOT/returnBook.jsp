@@ -18,11 +18,15 @@
         }
 
         .navbar {
+            position: sticky;
+            top: 0;
             background: #0f172a;
             padding: 16px 80px;
             width: 80%;
             height: 100px;
+            font-size: 20px;
             border-radius: 12px;
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.5);
             margin: auto;
             display: flex;
             justify-content: space-between;
@@ -44,6 +48,8 @@
 
         .nav-links a:hover {
             color: #fbbf24;
+            text-shadow: 0 0 30px #fbbf24;
+
         }
 
         .page {
@@ -54,15 +60,21 @@
 
         .card {
             background: #0f172a;
+            font-size: 20px;
             width: 480px;
             margin: auto;
             padding: 40px;
             border-radius: 20px;
         }
 
-        input, button {
-            width: 100%;
+        .card h2 {
+            font-size: 32px;
+        }
+
+        input {
+            width: 90%;
             padding: 14px;
+            font-size: 18px;
             margin-bottom: 20px;
             border-radius: 10px;
             border: none;
@@ -70,6 +82,12 @@
 
         button {
             background: #fbbf24;
+            height: 50px;
+            border-radius: 10px;
+            color: black;
+            font-size: 16px;
+            width: 50%;
+            margin: auto;
             font-weight: 600;
             cursor: pointer;
         }
