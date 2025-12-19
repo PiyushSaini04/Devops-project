@@ -78,6 +78,48 @@ public class FileStorage {
         }
     }
 
+    // DELETE ISSUE RECORD AFTER RETURN
+public static synchronized void deleteIssueRecord(
+        ServletContext context,
+        String bookId,
+        String student,
+        String regNo) {
+
+    File file = new File(context.getRealPath("/WEB-INF/library-data.txt"));
+    List<String> updatedLines = new ArrayList<>();
+
+    try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        String line;
+
+        while ((line = br.readLine()) != null) {
+
+            // Skip only the exact ISSUE record
+            if (line.startsWith("ISSUE")
+                    && line.contains("bookId=" + bookId)
+                    && line.contains("student=" + student)
+                    && line.contains("regNo=" + regNo)) {
+                continue; // ❌ DO NOT add this line
+            }
+
+            updatedLines.add(line);
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    // Rewrite file
+    try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+        for (String l : updatedLines) {
+            bw.write(l);
+            bw.newLine();
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+
     // SAVE RECORD (ISSUE / RETURN)
     public static synchronized void save(
             ServletContext context,

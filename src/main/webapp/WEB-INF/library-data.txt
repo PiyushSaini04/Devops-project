@@ -20,6 +20,8 @@ BOOK | id=B119 | name=Android Development | status=AVAILABLE
 BOOK | id=B120 | name=Data Science | status=ISSUED
 ISSUE | bookId=B101 | student=piyush | regNo=12322484 | date=2025-12-19
 ISSUE | bookId=B101 | student=piyush | regNo=12322484 | date=2025-12-19
-BOOK | id=A123 | name=Harry potter | status=ISSUED
-ISSUE | bookId=A123 | student=piyush | regNo=12322484 | date=2025-12-19
+BOOK | id=A123 | name=Harry potter | status=AVAILABLE
 ISSUE | bookId=B101 | student=piyush | regNo=12322484 | date=2025-12-19
+RETURN | bookId=A123 | student=piyush | regNo=12322484 | date=2025-12-19
+RETURN | bookId=A123 | student=piyush | regNo=12322484 | date=2025-12-19
+RETURN | bookId=A123 | student=piyush | regNo=12322484 | date=2025-12-19
