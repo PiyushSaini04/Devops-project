@@ -24,6 +24,7 @@ public class ReturnBookServlet extends HttpServlet {
                 " | date=" + LocalDate.now();
 
         FileStorage.save(getServletContext(), record);
+        FileStorage.updateBookStatus(getServletContext(), bookId, "AVAILABLE");
 
         resp.getWriter().print("Book Returned Successfully");
     }

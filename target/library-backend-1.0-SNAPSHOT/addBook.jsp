@@ -67,16 +67,17 @@
             min-height: 80vh;
             width: 90%;
             margin: auto;
-            display: flex;
+            
             align-items: center;
             justify-content: center;
-            padding: 60px 40px;
+            padding: 10px 40px;
         }
 
         /* Card */
         .card {
             background: #0f172a;
-            width: 450px;
+            width: 650px;
+            margin: 40px auto;
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
@@ -140,14 +141,13 @@
             }
         }
 
-        .page {
-            width: 90%;
-            margin: auto;
-            padding: 40px;
-        }
+       .page > h2{
+        font-size: 48px;
+       }
 
         .books-grid {
-            display: grid;
+            display: flex;
+            flex-wrap: wrap;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
             margin-top: 40px;
@@ -155,6 +155,7 @@
 
         .book-card {
             background: #0f172a;
+            width: 320px;
             padding: 20px;
             border-radius: 14px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.6);
@@ -218,9 +219,8 @@
             <button type="submit">Add Book</button>
         </form>
     </div>
-</div>
-<div class="page">
-    <h2>📚 Existing Books</h2>
+
+    <h2><span class="highlight"> Existing Books </span></h2>
 
     <div class="books-grid">
         <%

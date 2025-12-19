@@ -6,22 +6,24 @@ import java.util.*;
 
 public class FileStorage {
 
-    // Read all BOOK records
-    public static List<Map<String, String>> getAllBooks(ServletContext context) {
+    private static String getFilePath(ServletContext context) {
+        return context.getRealPath("/WEB-INF/library-data.txt");
+    }
 
+    // READ ALL BOOKS
+    public static List<Map<String, String>> getAllBooks(ServletContext context) {
         List<Map<String, String>> books = new ArrayList<>();
 
-        try {
-            String filePath = context.getRealPath("/WEB-INF/library-data.txt");
-            BufferedReader br = new BufferedReader(new FileReader(filePath));
+        try (BufferedReader br = new BufferedReader(
+                new FileReader(getFilePath(context)))) {
 
             String line;
             while ((line = br.readLine()) != null) {
 
                 if (line.startsWith("BOOK")) {
                     Map<String, String> book = new HashMap<>();
-
                     String[] parts = line.split("\\|");
+
                     for (String part : parts) {
                         if (part.contains("=")) {
                             String[] kv = part.trim().split("=");
@@ -31,23 +33,61 @@ public class FileStorage {
                     books.add(book);
                 }
             }
-            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return books;
+    }
+
+    // UPDATE BOOK STATUS (CORE FIX)
+    public static synchronized void updateBookStatus(
+            ServletContext context,
+            String bookId,
+            String newStatus) {
+
+        File file = new File(getFilePath(context));
+        List<String> updatedLines = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+
+            String line;
+            while ((line = br.readLine()) != null) {
+
+                if (line.startsWith("BOOK") && line.contains("id=" + bookId)) {
+                    // Update only the status field
+                    line = line.replaceAll(
+                            "status=AVAILABLE|status=ISSUED",
+                            "status=" + newStatus
+                    );
+                }
+                updatedLines.add(line);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return books;
+        // Rewrite file
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+            for (String l : updatedLines) {
+                bw.write(l);
+                bw.newLine();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    // Save new record
-    public static synchronized void save(ServletContext context, String record) {
+    // SAVE RECORD (ISSUE / RETURN)
+    public static synchronized void save(
+            ServletContext context,
+            String record) {
 
-        try {
-            String filePath = context.getRealPath("/WEB-INF/library-data.txt");
-            FileWriter fw = new FileWriter(filePath, true);
-            fw.write(record + "\n");
-            fw.close();
+        try (BufferedWriter bw = new BufferedWriter(
+                new FileWriter(getFilePath(context), true))) {
+
+            bw.write(record);
+            bw.newLine();
 
         } catch (Exception e) {
             e.printStackTrace();

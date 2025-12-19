@@ -28,7 +28,10 @@ public class IssueBookServlet extends HttpServlet {
                 " | date=" + LocalDate.now();
 
         FileStorage.save(getServletContext(), record);
+        FileStorage.updateBookStatus(getServletContext(), bookId, "ISSUED");
 
+        resp.sendRedirect("issueBook.jsp?success=true");
+       
         resp.getWriter().print("Book Issued Successfully");
     }
 }
