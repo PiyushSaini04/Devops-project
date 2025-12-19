@@ -19,7 +19,7 @@ public class AddBookServlet extends HttpServlet {
                         " | name=" + name +
                         " | status=AVAILABLE";
 
-        FileStorage.save(record);
+        FileStorage.save(getServletContext(), record);
 
         resp.getWriter().print("Book Added Successfully");
     }

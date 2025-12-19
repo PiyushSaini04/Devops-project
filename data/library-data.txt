@@ -1,0 +1,20 @@
+BOOK | id=B101 | name=Java Programming | status=AVAILABLE
+BOOK | id=B102 | name=Data Structures | status=ISSUED
+BOOK | id=B103 | name=Operating Systems | status=AVAILABLE
+BOOK | id=B104 | name=Computer Networks | status=ISSUED
+BOOK | id=B105 | name=Database Management | status=AVAILABLE
+BOOK | id=B106 | name=Artificial Intelligence | status=ISSUED
+BOOK | id=B107 | name=Machine Learning | status=AVAILABLE
+BOOK | id=B108 | name=Deep Learning | status=AVAILABLE
+BOOK | id=B109 | name=Cloud Computing | status=ISSUED
+BOOK | id=B110 | name=DevOps Fundamentals | status=AVAILABLE
+BOOK | id=B111 | name=Python Programming | status=AVAILABLE
+BOOK | id=B112 | name=C++ Complete Guide | status=ISSUED
+BOOK | id=B113 | name=Web Development | status=AVAILABLE
+BOOK | id=B114 | name=Spring Boot | status=ISSUED
+BOOK | id=B115 | name=Microservices | status=AVAILABLE
+BOOK | id=B116 | name=Software Engineering | status=AVAILABLE
+BOOK | id=B117 | name=Cyber Security | status=ISSUED
+BOOK | id=B118 | name=Blockchain Basics | status=AVAILABLE
+BOOK | id=B119 | name=Android Development | status=AVAILABLE
+BOOK | id=B120 | name=Data Science | status=ISSUED
